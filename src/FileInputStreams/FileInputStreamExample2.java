@@ -14,7 +14,7 @@ public class FileInputStreamExample2 {
             }
             fileInputStream.close();
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
         }
     }
 
