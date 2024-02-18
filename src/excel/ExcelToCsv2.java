@@ -30,21 +30,11 @@ public class ExcelToCsv2 {
             }
             System.out.println("Success...");
         }
-
-////         Step 2 & 3: Read CSV and Write to a Text File
-//        try (BufferedReader br = Files.newBufferedReader(Paths.get("csvConversion.csv"));
-//             BufferedWriter writer = Files.newBufferedWriter(Paths.get("excel.txt"))) {
-//            String line;
-//            while ((line = br.readLine()) != null) {
-//                writer.write(line);
-//                writer.newLine();
-//            }
-//        }
     }
 
     private static String getCellText(Cell cell, FormulaEvaluator evaluator) {
         CellType cellType = CellType.forInt(evaluator.evaluateInCell(cell).getCellType());
-//        CellType cellType = evaluator.evaluateInCell(cell).getCellType();
+
         switch (cellType) {
             case STRING:
                 return cell.getStringCellValue();
@@ -56,11 +46,6 @@ public class ExcelToCsv2 {
                     // Return as a string without scientific notation
                     return Double.toString(cell.getNumericCellValue());
                 }
-//            case BOOLEAN:
-//                return Boolean.toString(cell.getBooleanCellValue());
-//            case FORMULA:
-//                // Handle formula if required
-//                return cell.getCellFormula();
             default:
                 return "";
         }
